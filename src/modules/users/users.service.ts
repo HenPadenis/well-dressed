@@ -19,9 +19,15 @@ export class UsersService {
     return this.usersRepository.findOneBy({ id });
   }
 
-  async create(data: Partial<Users>): Promise<Users> {
-    const produto = this.usersRepository.create(data);
-    return this.usersRepository.save(produto);
+  async create(data: Partial<Users>): Promise<any> {
+    const user = this.usersRepository.create(data);
+    let retorno: any;
+    retorno = {
+      status_code: "teste",
+      message: "Usuário criado com sucesso!"
+    }
+    this.usersRepository.save(user);
+    return retorno;
   }
 
   async update(id: number, data: Partial<Users>): Promise<Users | null> {

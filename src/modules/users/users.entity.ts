@@ -20,13 +20,13 @@ export class Users {
   @Column({ type: 'date'})
   birthdate: Date;
 
-  @Column({ type: 'datetime'})
+  @Column({ type: 'datetime', default: () => 'CURRENT_TIMESTAMP'})
   created_at: Date;
 
-  @Column({ type: 'datetime'})
+  @Column({ type: 'datetime', default: () => 'CURRENT_TIMESTAMP', onUpdate: 'CURRENT_TIMESTAMP'})
   updated_at: Date;
 
-  @Column()
+  @Column( {type: 'boolean', default: false} )
   is_admin: boolean;
 
   @Column()
