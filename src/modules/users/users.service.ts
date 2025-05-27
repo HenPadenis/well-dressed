@@ -3,6 +3,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Users } from './users.entity';
 import { Repository } from 'typeorm';
+import { CreateUserDto } from './users.dto';
 
 @Injectable()
 export class UsersService {
@@ -19,8 +20,9 @@ export class UsersService {
     return this.usersRepository.findOneBy({ id });
   }
 
-  async create(data: Partial<Users>): Promise<any> {
-    const user = this.usersRepository.create(data);
+  async create(createUserDto: CreateUserDto): Promise<any> {
+    const user = this.usersRepository.create(createUserDto);
+    //Um exemplinho besta de como retornar algo personalizado manualmente
     let retorno: any;
     retorno = {
       status_code: "teste",
