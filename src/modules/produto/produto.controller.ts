@@ -2,6 +2,7 @@
 import { Controller, Get, Post, Put, Delete, Param, Body } from '@nestjs/common';
 import { ProdutoService } from './produto.service';
 import { Produto } from './produto.entity';
+import { CreateProdutoDto } from './produto.dto';
 
 @Controller('produto')
 export class ProdutoController {
@@ -18,8 +19,8 @@ export class ProdutoController {
   }
 
   @Post()
-  create(@Body() data: Partial<Produto>): Promise<Produto> {
-    return this.produtoService.create(data);
+  create(@Body() createProdutoDto: CreateProdutoDto): Promise<CreateProdutoDto> {
+    return this.produtoService.create(createProdutoDto);
   }
 
   @Put(':id')

@@ -6,29 +6,11 @@ export class Carrinho {
   id: number;
 
   @Column()
-  username: string;
+  user_id: number;
   
-  @Column()
-  pass_hash: string;
-
-  @Column()
-  phone: string;
-
-  @Column()
-  cpf_cnpj: string;
-
-  @Column({ type: 'date'})
-  birthdate: Date;
-
-  @Column({ type: 'datetime'})
+  @Column({ type: 'datetime', default: () => 'CURRENT_TIMESTAMP'})
   created_at: Date;
 
-  @Column({ type: 'datetime'})
+  @Column({ type: 'datetime', default: () => 'CURRENT_TIMESTAMP', onUpdate: 'CURRENT_TIMESTAMP'})
   updated_at: Date;
-
-  @Column()
-  is_admin: boolean;
-
-  @Column()
-  status: string;
 }

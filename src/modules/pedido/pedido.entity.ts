@@ -6,29 +6,24 @@ export class Pedido {
   id: number;
 
   @Column()
-  username: string;
+  user_id: number;
   
   @Column()
-  pass_hash: string;
+  status: string;
 
   @Column()
-  phone: string;
+  quantidade_total: number;
 
   @Column()
-  cpf_cnpj: string;
+  metodo_pagamento: string;
 
-  @Column({ type: 'date'})
-  birthdate: Date;
+  @Column()
+  status_pagamento: string;
 
-  @Column({ type: 'datetime'})
+  @Column({ type: 'datetime', default: () => 'CURRENT_TIMESTAMP'})
   created_at: Date;
 
-  @Column({ type: 'datetime'})
+  @Column({ type: 'datetime', default: () => 'CURRENT_TIMESTAMP', onUpdate: 'CURRENT_TIMESTAMP'})
   updated_at: Date;
 
-  @Column()
-  is_admin: boolean;
-
-  @Column()
-  status: string;
 }

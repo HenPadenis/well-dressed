@@ -6,29 +6,21 @@ export class Produto {
   id: number;
 
   @Column()
-  username: string;
+  nome: string;
   
   @Column()
-  pass_hash: string;
+  descricao: string;
 
   @Column()
-  phone: string;
+  price: number;
 
   @Column()
-  cpf_cnpj: string;
+  quantidade_estoque: number;
 
-  @Column({ type: 'date'})
-  birthdate: Date;
-
-  @Column({ type: 'datetime'})
+  @Column({ type: 'datetime', default: () => 'CURRENT_TIMESTAMP'})
   created_at: Date;
 
-  @Column({ type: 'datetime'})
+  @Column({ type: 'datetime', default: () => 'CURRENT_TIMESTAMP', onUpdate: 'CURRENT_TIMESTAMP'})
   updated_at: Date;
 
-  @Column()
-  is_admin: boolean;
-
-  @Column()
-  status: string;
 }

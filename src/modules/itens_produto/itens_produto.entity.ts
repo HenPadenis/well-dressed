@@ -6,29 +6,17 @@ export class ItensProduto {
   id: number;
 
   @Column()
-  username: string;
+  pedido_id: number;
   
   @Column()
-  pass_hash: string;
+  produto_id: number;
 
   @Column()
-  phone: string;
+  quantidade: number;
 
   @Column()
-  cpf_cnpj: string;
-
-  @Column({ type: 'date'})
-  birthdate: Date;
-
-  @Column({ type: 'datetime'})
-  created_at: Date;
-
-  @Column({ type: 'datetime'})
-  updated_at: Date;
+  preco_unitario: number;
 
   @Column()
-  is_admin: boolean;
-
-  @Column()
-  status: string;
+  preco_total: number;
 }

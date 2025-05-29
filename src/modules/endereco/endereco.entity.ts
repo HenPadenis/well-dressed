@@ -6,29 +6,35 @@ export class Endereco {
   id: number;
 
   @Column()
-  username: string;
+  user_id: number;
   
   @Column()
-  pass_hash: string;
+  nome: string;
 
   @Column()
-  phone: string;
+  cep: string;
 
   @Column()
-  cpf_cnpj: string;
-
-  @Column({ type: 'date'})
-  birthdate: Date;
-
-  @Column({ type: 'datetime'})
-  created_at: Date;
-
-  @Column({ type: 'datetime'})
-  updated_at: Date;
+  rua: string;
 
   @Column()
-  is_admin: boolean;
+  numero: string;
 
   @Column()
-  status: string;
+  complemento: string;
+
+  @Column()
+  bairro: string;
+
+  @Column()
+  cidade: string;
+
+  @Column()
+  estado: string;
+
+  @Column()
+  pais: string;
+
+  @Column({type: 'boolean', default: true})
+  is_default: boolean;
 }
