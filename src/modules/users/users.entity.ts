@@ -9,7 +9,7 @@ export class Users {
   username: string;
   
   @Column()
-  pass_hash: string;
+  pass: string;
 
   @Column()
   phone: string;
@@ -31,4 +31,7 @@ export class Users {
 
   @Column()
   status: string;
+
+  @Column()
+  email: string;
 }

@@ -5,7 +5,7 @@ export class CreateUserDto {
       username: string;
       
       @IsString()
-      pass_hash: string;
+      pass: string;
     
       @IsString()
       phone: string;
@@ -21,4 +21,7 @@ export class CreateUserDto {
     
       @IsString()
       status: string;
+
+      @IsString()
+      email: string;
 }
