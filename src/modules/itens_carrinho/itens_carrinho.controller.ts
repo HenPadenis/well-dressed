@@ -2,6 +2,7 @@
 import { Controller, Get, Post, Put, Delete, Param, Body } from '@nestjs/common';
 import { ItensCarrinhoService } from './itens_carrinho.service';
 import { ItensCarrinho } from './itens_carrinho.entity';
+import { CreateItensCarrinhoDto } from './itens_carrinho.dto';
 
 @Controller('itens_carrinho')
 export class ItensCarrinhoController {
@@ -18,8 +19,8 @@ export class ItensCarrinhoController {
   }
 
   @Post()
-  create(@Body() data: Partial<ItensCarrinho>): Promise<ItensCarrinho> {
-    return this.itensCarrinhoService.create(data);
+  create(@Body() createItensCarrinhoDto: CreateItensCarrinhoDto): Promise<CreateItensCarrinhoDto> {
+    return this.itensCarrinhoService.create(createItensCarrinhoDto);
   }
 
   @Put(':id')

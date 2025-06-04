@@ -2,6 +2,7 @@
 import { Controller, Get, Post, Put, Delete, Param, Body } from '@nestjs/common';
 import { ItensProdutoService } from './itens_produto.service';
 import { ItensProduto } from './itens_produto.entity';
+import { CreateItensProdutoDto } from './itens_produto.dto';
 
 @Controller('itens_produto')
 export class ItensProdutoController {
@@ -18,8 +19,8 @@ export class ItensProdutoController {
   }
 
   @Post()
-  create(@Body() data: Partial<ItensProduto>): Promise<ItensProduto> {
-    return this.itensProdutoService.create(data);
+  create(@Body() createItensProdutoDto: CreateItensProdutoDto): Promise<CreateItensProdutoDto> {
+    return this.itensProdutoService.create(createItensProdutoDto);
   }
 
   @Put(':id')

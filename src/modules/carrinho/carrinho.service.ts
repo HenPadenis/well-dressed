@@ -3,6 +3,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Carrinho } from './carrinho.entity';
 import { Repository } from 'typeorm';
+import { CreateCarrinhoDto } from './carrinho.dto';
 
 @Injectable()
 export class CarrinhoService {
@@ -19,8 +20,8 @@ export class CarrinhoService {
     return this.carrinhoRepository.findOneBy({ id });
   }
 
-  async create(data: Partial<Carrinho>): Promise<Carrinho> {
-    const produto = this.carrinhoRepository.create(data);
+  async create(createCarrinhoDto: CreateCarrinhoDto): Promise<CreateCarrinhoDto> {
+    const produto = this.carrinhoRepository.create(createCarrinhoDto);
     return this.carrinhoRepository.save(produto);
   }
 

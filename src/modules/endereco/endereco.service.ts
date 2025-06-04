@@ -3,6 +3,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Endereco } from './endereco.entity';
 import { Repository } from 'typeorm';
+import { CreateEnderecoDto } from './endereco.dto';
 
 @Injectable()
 export class EnderecoService {
@@ -19,8 +20,8 @@ export class EnderecoService {
     return this.enderecoRepository.findOneBy({ id });
   }
 
-  async create(data: Partial<Endereco>): Promise<Endereco> {
-    const produto = this.enderecoRepository.create(data);
+  async create(createEnderecoDto: CreateEnderecoDto): Promise<CreateEnderecoDto> {
+    const produto = this.enderecoRepository.create(createEnderecoDto);
     return this.enderecoRepository.save(produto);
   }
 
