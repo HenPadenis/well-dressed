@@ -3,7 +3,6 @@ import { Controller, Get, Post, Put, Delete, Param, Body, HttpStatus, HttpCode }
 import { UsersService } from './users.service';
 import { Users } from './users.entity';
 import { CreateUserDto } from './users.dto';
-import { UserResponseDto } from './users.response-dto';
 
 @Controller('users')
 export class UsersController {
