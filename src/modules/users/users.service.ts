@@ -17,11 +17,16 @@ export class UsersService {
     return this.usersRepository.find();
   }
 
-  async findOne(id: number): Promise<Users | null> {
+  async findOneById(id: number): Promise<Users | null> {
     return this.usersRepository.findOneBy({ id });
   }
 
+  async findOneByUsername(username: string): Promise<Users | null>{
+    return this.usersRepository.findOneBy({username: username});  //coluna username do entity recebe o username do método
+  }
+
   async create(createUserDto: CreateUserDto): Promise<any> {
+    
     const saltRounds = 10; //valor que equilibra o desempenho do hashing com a segurança. valor mais baixo menos seguro e mais rápido, valor mais alto mais seguro e mais lento.
 
     //faz o hash da senha antes de criar o usuário
@@ -51,7 +56,7 @@ export class UsersService {
 
   async update(id: number, data: Partial<Users>): Promise<Users | null> {
     await this.usersRepository.update(id, data);
-    return this.findOne(id);
+    return this.findOneById(id);
   }
 
   async remove(id: number): Promise<void> {
